@@ -1,0 +1,9 @@
+.exclude_list
+.build
+.docker
+.deploy
+.editorconfig
+.env.example
+.gitlab-ci.yml
+.git
+.gitignore

@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  app:
+      build:
+        context: .docker/php
+        args:
+          PUID: "1000"
+          PHP_INSTALL_XDEBUG: "true"
+          # INSTALL_GIT: "true"
+          PHP_XDEBUG_PORT: "9000"
+      volumes:
+        - ./:/var/www
+      user: www-data
+
+  database:
+      image: postgres:10
+      environment:
+        - "POSTGRES_DB=db"
+        - "POSTGRES_USER=postgres"
+        - "POSTGRES_PASSWORD=postgres"
+      ports:
+        - "43542:5432"
